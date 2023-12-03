@@ -24,7 +24,6 @@ readLine(
         }
         for (const match of numberColorGroups) {
             const number = parseInt(match.groups.number, 10)
-            console.log("matching",  maxColorMap[match.groups.color], "against", number)
             if (maxColorMap[match.groups.color] < number) {
                 console.log("Assigning", number)
             }
@@ -34,11 +33,9 @@ readLine(
                 : maxColorMap[match.groups.color]
         }
 
-        console.log(maxColorMap)
         const power = Object.values(maxColorMap).reduce((accumulator, currentValue) => {
             return accumulator * currentValue;
         }, 1)
-        console.log(power)
         powers.push(power)
     },
     () => {

@@ -19,7 +19,6 @@ const colorMap = {
     "blue": 14
 }
 
-
 readLine(
     line => {
         const gameIdMatch = line.match(/Game\s+(?<id>\d+)/)
