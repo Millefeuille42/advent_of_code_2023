@@ -51,7 +51,8 @@ func parseLine(input string) int {
 	/* Why this ?
 	 * This is because strings like "eightwothree" must give ["eight", "two", "three"]
 	 * The logic is then to match one by one, consume the first letter of the match (to invalidate it) and then
-	 * continue to match the leftover string. I think that a proper regex for this exists, but I have my limits :P
+	 * continue to match the leftover string. Proper regexp for this could be (?=(xxx)) but the positive lookahead
+	 * doesn't exist in Golang :O
 	 */
 	for match := re.Find([]byte(input)); len(match) > 0; match = re.Find([]byte(input)) {
 		index := strings.Index(input, string(match))
