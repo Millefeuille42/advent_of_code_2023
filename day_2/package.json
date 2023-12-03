@@ -1,0 +1,9 @@
+{
+  "name": "day_2_ex00",
+  "version": "1.0.0",
+  "scripts": {
+    "ex00": "node ex00/index.js",
+    "ex01": "node ex01/index.js"
+  },
+  "license": "MIT"
+}
