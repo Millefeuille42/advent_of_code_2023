@@ -2,34 +2,37 @@
 
 See https://adventofcode.com/
 
-## Guidelines
-I have mapped 12 languages (of which I have a variable amount of knowledge) to a d12 and will let fate
-decide which language I will do every day.
+## Letting Fate Decide
+I've spiced up this challenge by tying 12 different programming languages to a d12.
+Each day, I roll the dice to pick a language for that day's challenge.
+Here are the languages I've linked to the die:
 
-1. go
-2. rust
-3. bash
-4. c++
-5. c#
-6. js/ts
-7. python
-8. ASM (1 architecture au choix)
+1. Go
+2. Rust
+3. Bash
+4. C++
+5. C#
+6. JavaScript/TypeScript
+7. Python
+8. Assembly (any architecture)
 9. OCaml
 10. Lua
 11. Perl
 12. Kotlin
 
-I will certainly not do every dayly challenge the said day.
+I might not tackle every daily challenge on its release day.
 
-## Picks
-Here are the picks for every day
+## Daily Rolls
+Here's what I've rolled for each day:
 
 - Day 1: Go
-- Day 2: JS / TS
+- Day 2: JavaScript/TypeScript
 - Day 3: C++
 
-## License / Copyright
-All my code and this repo is under the MIT License. Just don't use it to cheat, because cheating is bad :(
+## Keep It Fair!
+All the code in this repository falls under the MIT License.
+Just a friendly reminder: let's keep it fair and not use it for cheating. Cheating isn't cool! :(
 
-## Stuff
-If you like this: leave a star, send me your language list, the dice you chose, anything, nothing, it's up to you !
+## Share Your Thoughts
+If you enjoy this setup, show some love by starring the repository!
+Feel free to share your own language list or anything else you'd like to add -- it's all about having fun!
