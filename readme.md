@@ -28,6 +28,7 @@ Here's what I've rolled for each day:
 - Day 1: Go
 - Day 2: JavaScript/TypeScript
 - Day 3: C++
+- Day 3: Perl
 
 ## Keep It Fair!
 All the code in this repository falls under the MIT License.
