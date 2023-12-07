@@ -28,7 +28,27 @@ Here's what I've rolled for each day:
 - Day 1: Go
 - Day 2: JavaScript/TypeScript
 - Day 3: C++
-- Day 3: Perl
+- Day 4: Perl
+- Day 5: OCaml
+- Day 6: Python
+- Day 7: Python
+- Day 8 : C#
+- Day 9 : Rust
+- Day 10 : Go
+- Day 11 : C++
+- Day 12 : Perl
+- Day 13 : OCamel
+- Day 14 : Lua 
+- Day 15 : Python
+- Day 16 : JS / TS
+- Day 17 : Lua
+- Day 18 : Bash
+- Day 19 : Go
+- Day 20 : C++
+- Day 21 : Ocaml
+- Day 22 : Bash
+- Day 23 : Kotlin
+- Day 24 : ASM (aarch64)
 
 ## Keep It Fair!
 All the code in this repository falls under the MIT License.
