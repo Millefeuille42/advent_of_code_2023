@@ -1,5 +1,5 @@
 import re
-from math import sqrt, pow, floor, ceil
+from math import sqrt, pow, ceil
 
 
 def polynomial(a, b, c):
