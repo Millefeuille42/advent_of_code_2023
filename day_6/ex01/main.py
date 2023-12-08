@@ -8,7 +8,7 @@ def polynomial(a, b, c):
 
 
 if __name__ == "__main__":
-    file = open('ex00/data.txt', 'r')
+    file = open('ex01/data.txt', 'r')
     lines = file.readlines()
     number_regexp = re.compile(r"\d+")
 
