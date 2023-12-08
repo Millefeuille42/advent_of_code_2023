@@ -52,8 +52,7 @@ let () =
     let get_lowest (range : Seedrange.seed_range) =
       (* 
         * This is absolutely not the optimal way of doing this.
-        * The optimal way would be to use Sankey diagrams logic to compute
-        *  only what is necessary, like: 
+        * The optimal way would be to use Sankey diagrams logic to compute only what is necessary, like: 
         *   - getting the lowest seed number
         *   - getting the lowest location mapping that applies to a seed
         *   - comparing the two results
