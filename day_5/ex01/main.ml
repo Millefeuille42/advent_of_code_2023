@@ -45,26 +45,42 @@ let () =
       get_type_map lines "humidity-to-location";
     ] in
 
-    (* 
-      * This is absolutely not the optimal way of doing this.
-      * The optimal way would be to use Sankey diagrams logic to compute
-      *  only what is necessary, like: 
-      *   - getting the lowest seed number
-      *   - getting the lowest location mapping that applies to a seed
-      *   - comparing the two results
-      * This way, the overall complexity will be (almost) independant of the number of seeds.
-      * Which would give sub second result almost every time.
-    *)
     Printf.printf "Computing lowest of %d ranges...%!\n" (List.length seed_ranges);
-    let rec get_lowest lowest = function
-      | [] -> lowest
-      | (range : Seedrange.seed_range) :: rest ->
-        Printf.printf "\tComputing range of size %d...\n%!" (range.range);
-        let lowest_of_range = Seedrange.get_lowest mappings range in
-        if lowest < 0 || lowest_of_range < lowest then
-          get_lowest lowest_of_range rest
-        else
-          get_lowest lowest rest
+    let lowest = ref (-1) in
+    let lock = Mutex.create() in
+
+    let get_lowest (range : Seedrange.seed_range) =
+      (* 
+        * This is absolutely not the optimal way of doing this.
+        * The optimal way would be to use Sankey diagrams logic to compute
+        *  only what is necessary, like: 
+        *   - getting the lowest seed number
+        *   - getting the lowest location mapping that applies to a seed
+        *   - comparing the two results
+        * This way, the overall complexity will be (almost) independant of the number of seeds.
+        * Which would give sub second result almost every time.
+      *)
+      Printf.printf "\tComputing range of size %d...\n%!" (range.range);
+      let lowest_of_range = Seedrange.get_lowest mappings range in
+      Mutex.lock lock;
+      if !lowest < 0 || lowest_of_range < !lowest then lowest := lowest_of_range;
+      Mutex.unlock lock;
     in
-    print_int (get_lowest (-1) seed_ranges);
+
+    (* 
+      * Multi-threading this shit because why not? And it's actually (10 secs) slower, lol
+      * From what I managed to understand this is light threading, so no surprises actually. 
+      * On the bright side, it limits cpu core load, so my it is way more resilient
+      *  on my laptop, which has a tendency to crash when a single core is overloaded
+      * Conclusion: Not necessary, still cool to do, learned some stuff :)
+    *)
+    let rec start_threads acc = function
+      | [] -> acc
+      | range :: rest ->
+        let thread = Thread.create get_lowest range in
+        start_threads (thread :: acc) rest
+    in
+    let threads = start_threads [] seed_ranges in
+    List.iter Thread.join threads;
+    print_int (!lowest);
     print_newline ();;
