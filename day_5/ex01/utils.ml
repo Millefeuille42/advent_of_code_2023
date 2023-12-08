@@ -1,22 +1,3 @@
-let rec print_list_ints lst =
-	match lst with
-	| [] ->
-		  print_newline ()
-	| head :: tail ->
-	  begin
-		  Printf.printf "%d " head;
-		  print_list_ints tail
-	  end
-
-let rec print_map_ints map =
-	match map with
-	| [] -> ()
-	| head :: tail ->
-		  begin
-			  print_list_ints head;
-			  print_map_ints tail
-		  end
-
 let split_by_space line =
   String.split_on_char ' ' line
 

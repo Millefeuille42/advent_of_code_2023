@@ -45,12 +45,21 @@ let () =
       get_type_map lines "humidity-to-location";
     ] in
 
+    (* 
+      * This is absolutely not the optimal way of doing this.
+      * The optimal way would be to use Sankey diagrams logic to compute
+      *  only what is necessary, like: 
+      *   - getting the lowest seed number
+      *   - getting the lowest location mapping that applies to a seed
+      *   - comparing the two results
+      * This way, the overall complexity will be (almost) independant of the number of seeds.
+      * Which would give sub second result almost every time.
+    *)
     Printf.printf "Computing lowest of %d ranges...%!\n" (List.length seed_ranges);
     let rec get_lowest lowest = function
       | [] -> lowest
       | (range : Seedrange.seed_range) :: rest ->
-        Printf.printf "\tComputing range of size %d...\n%!" (range.range) ;
-        (* Printf.printf "In range: {%d %d}\n" range.source range.range; *)
+        Printf.printf "\tComputing range of size %d...\n%!" (range.range);
         let lowest_of_range = Seedrange.get_lowest mappings range in
         if lowest < 0 || lowest_of_range < lowest then
           get_lowest lowest_of_range rest

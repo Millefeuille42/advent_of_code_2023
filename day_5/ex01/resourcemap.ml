@@ -27,6 +27,3 @@ let rec get_resource_loc resource = function
     let new_resource = source_to_destination_from_list resource map in
     (* Printf.printf "\t\t%d -> %d\n" resource new_resource; *)
     get_resource_loc new_resource rest
-
-let print map =
-  Printf.printf "{\n  destination: %d\n  source: %d\n  range: %d\n}\n" map.destination map.source map.range
